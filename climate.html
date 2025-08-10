@@ -1,0 +1,344 @@
+<!doctype html>
+
+<html lang="hi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Climate_Change_Awareness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --accent1: #06b6d4;
+            --accent2: #7c3aed;
+            --glass: rgba(255, 255, 255, 0.06);
+            --muted: rgba(255, 255, 255, 0.65);
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                Segoe UI,
+                Roboto,
+                "Noto Sans",
+                sans-serif;
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg), #071226 120%);
+            min-height: 100vh;
+            color: #e6eef8;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 48px auto;
+            padding: 28px;
+        }
+
+        header {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(12, 18, 30, 0.6);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        p.lead {
+            margin: 6px 0 0;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .card {
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.02),
+                    rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 18px;
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+        }
+
+        .q {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .q .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ff4d6d;
+            margin-top: 6px;
+            flex: 0 0 14px;
+        }
+
+        .q h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .q small {
+            display: block;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .btn {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 8px 12px;
+            border-radius: 10px;
+            color: #e6eef8;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg,
+                    var(--accent1),
+                    var(--accent2));
+            border: none;
+            color: #041025;
+        }
+
+        .answer {
+            margin-top: 12px;
+            color: #dbeafe;
+            line-height: 1.5;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg,
+                    rgba(124, 58, 237, 0.06),
+                    rgba(6, 182, 212, 0.03));
+            display: none;
+        }
+
+        .explore {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .explore h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .explore a {
+            display: inline-block;
+            margin: 6px 10px 0 0;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--glass);
+            color: #e6eef8;
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 26px;
+            color: var(--muted);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-toast {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            background: #041025;
+            color: #bff0f6;
+            padding: 10px 14px;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+            display: none;
+        }
+
+        @media (max-width: 420px) {
+            .wrap {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">
+                <img src="https://tirupati27.github.io/python-s-documentations/_static/tirupati05564.jpg" alt="Creator Photo" />
+            </div>
+            <div>
+                <h1>जलवायु प्रश्न — पढ़ें और शेयर करें</h1>
+            </div>
+        </header>
+        <div class="grid" id="qaGrid"></div>
+
+        <div class="explore">
+            <h2>Explore More Pages</h2>
+            <a href="https://tirupati27.github.io/python-s-documentations/about.html">About Us</a>
+            <a href="https://tirupati27.github.io/python-s-documentations/" target="_blank">Python Documentations</a>
+            <a href="https://www.youtube.com/results?search_query=%23operation2030" target="_blank">Operation_2030</a>
+        </div>
+
+        <footer>
+            <div>&#169; Tirupati — Share the truth.</div>
+
+        </footer>
+    </div>
+    <div id="toast" class="copy-toast">Copied to clipboard</div>
+    <script>
+        const data = [
+            {
+                q: "हर साल जलवायु परिवर्तन (climate change) क्यों बिगड़ता जा रहा है?",
+                a: "क्योंकि उद्योग और सरकारें अपने फायदे के लिए प्रकृति का शोषण कर रही हैं।"
+            },
+            {
+                q: "सरकारें क्यों कुछ नहीं कर रहीं?",
+                a: "क्योंकि बड़ी कंपनियाँ, नीतियों को अपने हिसाब से चलाती हैं और मुनाफ़े को पर्यावरण से ज़्यादा ज़रूरी मानती हैं।"
+            },
+            {
+                q: "बड़ी कंपनियाँ बच कैसे जाती हैं?",
+                a: "क्योंकि आम लोग इन मुद्दों को समझ ही नहीं पाते, और उपभोगतावाद (consumerism) में उलझे रहते हैं।"
+            },
+            {
+                q: "लोग जागरूक क्यों नहीं हैं?",
+                a: "क्योंकि शिक्षा, उद्योग, और राजनीति असली समस्याओं को छिपाकर रखते हैं—चाहे वह जलवायु परिवर्तन हो, पशु क्रूरता हो, या बे-लगाम उपभोगतावाद हो।"
+            },
+            {
+                q: "झूठ इतना ताकतवर क्यों है?",
+                a: "क्योंकि इसे अरबों का फंड मिलता है—तेल कंपनियां, डेयरी और मांस उद्योग, और राजनीतिक प्रचार सभी लोगों को गुमराह करने के लिए पैसे झोंकते हैं।"
+            },
+            {
+                q: "इसका मुकाबला कौन कर रहा है?",
+                a: "आचार्य प्रशांत— जो सबसे स्पष्ट, सबसे निर्भीक आवाज़ हैं:\n\n• जलवायु जागरूकता—बड़े उद्योगों से पर्यावरण को हो रहे नुकसान की सच्चाई उजागर कर रहे हैं।\n• पशु करुणा—डेयरी और मांस उद्योग की क्रूरता का पर्दाफाश कर रहे हैं।\n• आध्यात्मिकता—लोगों को सरल बनाना—गीता, उपनिषद और वेदांत को आसान भाषा में सुगम बना रहे हैं।"
+            },
+            {
+                q: "फिर उनकी मुहिम तेजी से क्यों नहीं बढ़ रही?",
+                a: "क्योंकि झूठ को अरबों का फंड मिलता है, और सच अब भी गिने-चुने समर्थकों पर निर्भर है।"
+            },
+            {
+                q: "अगर इस मिशन को पूरा समर्थन नहीं मिला, तो क्या होगा?",
+                a: "अज्ञानता और फैलगी, पर्यावरण बर्बाद होगा, करोड़ों जानवरों की हत्या जारी रहेगी, और असली आध्यात्मिकता का एक छोटा-सा ही सीमित रहेगा।"
+            },
+            {
+                q: "अब इस स्थिति को बदल कौन सकता है?",
+                a: "आप! हां आप, जो इसे पढ़ रहे हैं।"
+            },
+            {
+                q: "अब आपको क्या करना चाहिए?",
+                a: "जिम्मेदारी लें। चुप्पी तोड़ें। सच का उतना ही समर्थन दें, जितना झूठ को मिल रहा है।"
+            }
+        ];
+
+        const grid = document.getElementById("qaGrid");
+
+        data.forEach((item, idx) => {
+            const card = document.createElement("article");
+            card.className = "card";
+            card.innerHTML = `
+        <div class="q">
+          <div class="dot" aria-hidden="true"></div>
+          <div style="flex:1">
+            <h3>${item.q}</h3>
+            <small>क्लिक करें उत्तर देखने के लिए</small>
+            <div class="answer" id="a${idx}">${item.a.replace(
+                /\n/g,
+                "<br>"
+            )}</div>
+            <div class="actions">
+              <button class="btn" data-toggle="${idx}">Show Answer</button>
+              <button class="btn" data-copy-all="${idx}">Copy</button>
+            </div>
+          </div>
+        </div>
+      `;
+            grid.appendChild(card);
+        });
+
+        document.addEventListener("click", e => {
+            const t = e.target;
+            if (t.matches("[data-toggle]")) {
+                const id = t.getAttribute("data-toggle");
+                const el = document.getElementById("a" + id);
+                if (el.style.display === "block") {
+                    el.style.display = "none";
+                    t.textContent = "Show Answer";
+                } else {
+                    el.style.display = "block";
+                    t.textContent = "Hide Answer";
+                }
+            }
+            if (t.matches("[data-copy-all]")) {
+                const id = +t.getAttribute("data-copy-all");
+                copyText(data[id].q + "\n\n" + data[id].a);
+            }
+        });
+
+        function copyText(txt) {
+            navigator.clipboard.writeText(txt).then(
+                () => {
+                    showToast("Copied to clipboard");
+                },
+                () => {
+                    alert(
+                        "Copy failed — your browser may block clipboard access"
+                    );
+                }
+            );
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById("toast");
+            t.textContent = msg;
+            t.style.display = "block";
+            clearTimeout(window._toast);
+            window._toast = setTimeout(() => {
+                t.style.display = "none";
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>
